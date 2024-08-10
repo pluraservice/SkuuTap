@@ -20,6 +20,12 @@ export default function MainHome() {
         return () => clearInterval(interval);
     }, [randomId])
 
+    useEffect(() => {
+        if (localStorage.getItem("SkuuTap | Account Saved")) {
+            window.open("/main", "_self");
+        }
+    }, [])
+
     return (
         <div className='flex flex-row flex-phone'>
            <div className="SkuuTap-LoginForm h-screen">

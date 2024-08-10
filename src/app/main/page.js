@@ -58,9 +58,7 @@ export default function Main() {
             }
         }
 
-        fetchData();
-        const interval = setInterval(fetchData, 10000);
-        return () => clearInterval(interval);
+        return () => fetchData();
     }, [])
 
     useEffect(() => { if (userData) { setLoadingScreen(false); } else { setLoadingScreen(true); } }, [userData]);
@@ -176,71 +174,8 @@ export default function Main() {
                                 <div className="w-96 h-auto flex flex-col gap-5 rounded-xl p-4 bg-black">
                                     <div className="flex flex-row items-center">
                                         <div className="w-full">
-                                            <h1 className="text-white">SkuuTap Instagram Verifica Follower</h1>
+                                            <h1 className="text-white text-center">SkuuTap Instagram Verifica Follower</h1>
                                         </div>
-                                        <FontAwesomeIcon icon={faXmark} className="text-green-500 cursor-pointer" onClick={() => setShowInstagramAlert(false)} />
-                                    </div>
-                                    <p className="text-gray-400 text-sm">Se Dopo Avviata la Verifica, Risulterai tra i Follower verrai Registrato perciò non Potrai Utilizzare questo Username con un'Altro Account.</p>
-                                    <input className="w-full border border-gray-400 rounded-xl text-center p-3 text-white bg-black" placeholder="Inserisci il tuo Username Instagram" value={instagramAlertUsername} onChange={(e) => setInstagramAlertUsername(e.target.value)} />
-                                    <button className="text-white w-full rounded-full py-1 px-3" style={{ backgroundColor: "rgb(40, 40, 40)" }} onClick={
-                                        async () => {
-                                            if (instagramAlertUsername) {
-                                                setInstagramButtonIsLoading(true);
-                                                const getIsFollower = await getUserIsFollowerFromUsername(instagramAlertUsername);
-                                                if (getIsFollower.result) {
-                                                    if (getIsFollower.isFollower) {
-                                                        setInstagramButtonIsLoading(false);
-                                                        setInstagramAlertText({
-                                                            text: "Verifica Effettuata con Successo, Hai Ricevuto la Tua Ricompensa",
-                                                            type: "SUCCESS"
-                                                        })
-                                                    } else {
-                                                        setInstagramButtonIsLoading(false);
-                                                        setInstagramAlertText({
-                                                            text: "Non risulti Tra i Follower dell'Account, Riprova",
-                                                            type: "ERROR"
-                                                        })
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }>{(instagramButtonIsLoading ? "Verifica in Corso, Attendere" : "Avvia la Verifica")}</button>
-                                    <p className={"text-sm text-center " + (instagramAlertText.type === "SUCCESS" ? "text-green-500" : "text-red-500")}>{instagramAlertText.text}</p>
-                                </div>
-                            ) : ""}
-                        </div>
-                        <div className="SkuuTap-HomeImgContainer">
-                            {playGame && !viewVideo.view && !showInstagramAlert ? (
-                                <>
-                                    <iframe src={"/tapGame/index.html?userUid=" + userData.uid} className="w-full h-full" />
-                                </>
-                            ) : ""}
-                            {viewVideo.view && !playGame && !showInstagramAlert ? (
-                                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                                    <>
-                                        <h1 className="text-white text-center p-1">Guarda tutto il Video per Ricevere la Tua Ricompensa</h1>
-                                        <iframe key={videoKey} width={"100%"} height={"100%"} src={viewVideo.item.VideoOptionsFrame.url} title="SkuuTap Video" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                width: '100%',
-                                                height: '100%',
-                                                zIndex: 1,
-                                                backgroundColor: 'transparent',
-                                            }}
-                                        ></div>
-                                    </>
-                                </div>
-                            ) : ""}
-                            {showInstagramAlert ? (
-                                <div className="w-96 h-auto flex flex-col gap-5 rounded-xl p-4 bg-black">
-                                    <div className="flex flex-row items-center">
-                                        <div className="w-full">
-                                            <h1 className="text-white">SkuuTap Instagram Verifica Follower</h1>
-                                        </div>
-                                        <FontAwesomeIcon icon={faXmark} className="text-green-500 cursor-pointer" onClick={() => setShowInstagramAlert(false)} />
                                     </div>
                                     <p className="text-gray-400 text-sm">Se Dopo Avviata la Verifica, Risulterai tra i Follower verrai Registrato perciò non Potrai Utilizzare questo Username con un'Altro Account.</p>
                                     <input className="w-full border border-gray-400 rounded-xl text-center p-3 text-white bg-black" placeholder="Inserisci il tuo Username Instagram" value={instagramAlertUsername} onChange={(e) => setInstagramAlertUsername(e.target.value)} />
