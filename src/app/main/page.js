@@ -49,6 +49,7 @@ export default function Main() {
                         } else {
                             setUserTapCoin(0);
                         }
+                        setLoadingScreen(false)
                     }
                 } else {
                     window.open("/", "_self");
@@ -60,8 +61,6 @@ export default function Main() {
 
         return () => fetchData();
     }, [])
-
-    useEffect(() => { if (userData) { setLoadingScreen(false); } else { setLoadingScreen(true); } }, [userData]);
 
     useEffect(() => {
         if (viewVideo.view) {
