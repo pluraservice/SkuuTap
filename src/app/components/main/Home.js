@@ -6,14 +6,14 @@ import SkuuTapCardBackground from "@/app/assets/img/cardbg.png"
 
 export default function Home({ userData, setPlayGame, userTapCoin, playGame }) {
     return (
-        <div className="overflow-scroll overflow-x-hidden w-full h-full py-5 flex flex-col justify-center items-center gap-6" style={{ paddingBottom: "120px" }}>
+        <div className="overflow-y-scroll overflow-x-hidden w-full h-full py-5 flex flex-col justify-center items-center gap-6" style={{ paddingBottom: "120px" }}>
             <Image src={userData.photoURL ? userData.photoURL : noPhotoURL} className="w-32 rounded-full" />
             <h1 className="text-2xl">{userData.displayName}</h1>
             <div className="flex flex-row justify-center items-center gap-3">
                 <Image src={SkuuTapCoin} className="w-12 rounded-full" />
                 <h1 className="text-2xl">{userTapCoin}</h1>
             </div>
-            <div className="w-full flex justify-center items-center mt-10">
+            <div className="w-full flex justify-center items-center mt-2">
                 <div className="relative grid h-[15rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
                     <Image className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none" src={SkuuTapCardBackground} />
                     <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/80 via-black/50 to-bg-black-10"></div>

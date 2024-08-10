@@ -130,8 +130,8 @@ export default function Main() {
                             } />
                         </div>
                     ) : ""}
-                    <div className="flex-phone flex flex-wrap justify-center items-center h-full">
-                        <div className="SkuuTap-MainForm flex flex-col justify-center items-center">
+                    <div className="flex-phone flex flex-wrap h-full">
+                        <div className="SkuuTap-MainForm flex flex-col">
                             {!playGame && !viewVideo.view && !showInstagramAlert ? (
                                 <>
                                     {modalitySelezionated === "Home" ? (
