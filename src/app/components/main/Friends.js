@@ -72,8 +72,10 @@ export default function Friends({ userData }) {
                             Copia il Referral Friends Url
                         </li>
                         <div className="flex flex-col w-full gap-5 p-3" onClick={() => setCopyReferralUrl(true)}>
-                            <h1 className="">https://www.skuubit.com/register?refCode={userData.uid}</h1>
-                            <button className="w-auto h-auto px-5 py-1 flex gap-2 justify-center items-center rounded-xl" style={{ backgroundColor: "rgb(40, 40, 40)" }}>
+                            <h1 className="text-center">https://www.skuubit.com/register?refCode={userData.uid}</h1>
+                            <button className="w-auto h-auto px-5 py-1 flex gap-2 justify-center items-center rounded-xl" style={{ backgroundColor: "rgb(40, 40, 40)" }} onClick={
+                                () => {navigator.clipboard.writeText(`https://www.skuubit.com/register?refCode=${userData.uid}`)}
+                            }>
                                 {copyReferralUrl ? (
                                     <>
                                         <FontAwesomeIcon icon={faCheck} className="text-green-500" />

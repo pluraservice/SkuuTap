@@ -116,7 +116,7 @@ export default function Main() {
     return (
         <>
             {userData ? (
-                <div className="flex flex-col h-screen">
+                <div className="flex flex-wrap h-screen">
                     {playGame || viewVideo.view || showInstagramAlert ? (
                         <div className="w-full flex justify-end items-center p-4">
                             <FontAwesomeIcon icon={faXmark} className="text-green-500 text-xl" onClick={
@@ -130,8 +130,8 @@ export default function Main() {
                             } />
                         </div>
                     ) : ""}
-                    <div className="flex-phone flex justify-center items-center h-full">
-                        <div className="SkuuTap-MainForm flex flex-col">
+                    <div className="flex-phone flex flex-wrap justify-center items-center h-full">
+                        <div className="SkuuTap-MainForm flex flex-col justify-center items-center">
                             {!playGame && !viewVideo.view && !showInstagramAlert ? (
                                 <>
                                     {modalitySelezionated === "Home" ? (
@@ -207,7 +207,7 @@ export default function Main() {
                             ) : ""}
                         </div>
                     </div>
-                    <div className="absolute bottom-0 w-full h-auto flex justify-center items-center p-5">
+                    <div className="absolute bg-black bottom-0 w-full h-auto flex justify-center items-center p-5">
                         <div className="w-full h-16 rounded-xl flex flex-row" style={{ backgroundColor: 'rgb(40, 40, 40)' }}>
                             <div onClick={() => setModalitySelezionated("Home")} className="cursor-pointer w-full flex flex-col gap-2 justify-center items-center h-full border-r border-gray-500">
                                 <FontAwesomeIcon icon={faHome} className="text-green-600" />

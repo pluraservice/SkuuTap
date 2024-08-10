@@ -51,7 +51,10 @@ export default function Tasks({ userData, setViewVideo, setShowInstagramAlert })
             }
             setTaskStatuses(statuses);
         };
+
         fetchData();
+        const interval = setInterval(fetchData, 5000);
+        return () => clearInterval(interval);
     }, [userData]);
 
     const handleRedeemPrize = async (task) => {
@@ -67,14 +70,14 @@ export default function Tasks({ userData, setViewVideo, setShowInstagramAlert })
 
     return (
         <>
-            <div className="flex flex-col w-full h-full gap-2 p-4">
+            <div className="flex flex-col justify-center w-full h-full gap-2 p-4">
                 <h1 className="text-2xl font-semibold">SkuuTap Tasks</h1>
                 <p className="text-gray-400 text-xs">
                     Benvenuto nella sezione Tasks di SkuuTap! Qui troverai una serie di missioni avvincenti e coinvolgenti
                     che ti permetteranno di guadagnare coin e avanzare nel progetto. Ogni task è stata progettata per offrirti
                     sfide uniche e divertenti, permettendoti di mettere alla prova le tue abilità e di esplorare nuove opportunità.
                 </p>
-                <div className="w-full md:h-[600px] h-[500px] overflow-scroll flex flex-col">
+                <div className="w-full md:h-[600px] h-[500px] overflow-scroll flex flex-col" style={{ paddingBottom: "120px" }}>
                     {TasksList.map((item, index) => {
                         const taskStatus = taskStatuses[item.Id] || {};
                         return (
