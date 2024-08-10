@@ -101,7 +101,7 @@ export default function Main() {
             }))
             viewVideo.item.redeemPrize(userData.uid);
         }
-    }, [timer, totalVideoTime, rewardGiven, userData]);
+    }, [timer, totalVideoTime, rewardGiven, userData, viewVideo]);
 
     useEffect(() => {
         const handleBlur = () => { resetTimer(); };
@@ -162,7 +162,7 @@ export default function Main() {
                             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                                 <>
                                     <h1 className="text-white text-center p-1">Guarda tutto il Video per Ricevere la Tua Ricompensa</h1>
-                                    <iframe key={videoKey} width={"100%"} height={"100%"} src={viewVideo.item.VideoOptionsFrame.url} title="SkuuTap Video" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe key={videoKey} width={"100%"} height={"100%"} src={viewVideo.item.VideoOptionsFrame.url} title="SkuuTap Video" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
                                     <div
                                         style={{
                                             position: 'absolute',
