@@ -49,7 +49,6 @@ export default function Main() {
                         } else {
                             setUserTapCoin(0);
                         }
-                        setLoadingScreen(false)
                     }
                 } else {
                     window.open("/", "_self");
@@ -59,7 +58,9 @@ export default function Main() {
             }
         }
 
-        return () => fetchData();
+        fetchData()
+        const intervalId = setInterval(fetchData, 5000);
+        return () => clearInterval(intervalId);
     }, [])
 
     useEffect(() => {
@@ -114,7 +115,7 @@ export default function Main() {
 
     return (
         <>
-            {!loadingScreen ? (
+            {userData ? (
                 <div className="flex flex-col h-screen">
                     {playGame || viewVideo.view || showInstagramAlert ? (
                         <div className="w-full flex justify-end items-center p-4">
@@ -227,13 +228,7 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-            ) : (
-                <>
-                    <div className="w-full h-screen flex justify-center items-center bg-green-600">
-                        <h1 className="text-black text-7xl">SkuuTap</h1>
-                    </div>
-                </>
-            )}
+            ) : ""}
         </>
     );
 }
