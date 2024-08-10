@@ -45,14 +45,13 @@ img {
     width: 25%;
     background-color: black;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 
 .SkuuTap-HomeImgContainer {
-    display: none;
     width: 75%;
     background-color: green;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;

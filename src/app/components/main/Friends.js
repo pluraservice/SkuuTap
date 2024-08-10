@@ -61,7 +61,7 @@ export default function Friends({ userData }) {
 
     return (
         <>
-            <div className="flex flex-wrap overflow-scroll justify-center items-center gap-2 p-4">
+            <div className="w-full overflow-scroll bg-red-500 p-4 gap-3">
                 <h1 className="text-2xl font-semibold">Invita i Tuoi Amici e Guadagna Coin</h1>
                 <p className="text-gray-400 text-xs">Entra a far parte della nostra community di SkuuTap e porta con te i tuoi amici! Ogni volta che un amico si iscrive utilizzando il tuo link di invito, riceverai dei Coin come ricompensa. Usa i tuoi Coin per sbloccare contenuti esclusivi, ottenere sconti speciali e partecipare a eventi riservati. Più amici inviti, più Coin guadagni!</p>
                 <div className="flex flex-col justify-center items-center gap-3 py-5 px-3">
@@ -100,7 +100,7 @@ export default function Friends({ userData }) {
                     <div className="w-full mt-7 px-5 h-24 flex flex-col gap-3 justify-center items-center rounded-xl" style={{ backgroundColor: "rgb(40, 40, 40)" }}>
                         <h1 className="flex flex-row gap-2 justify-center items-center">
                             <Image src={SkuuTapCoin} className="h-7 w-auto" />
-                            {userReferralPercentual}
+                            {userReferralPercentual.toFixed(0)}
                         </h1>
                         <button disabled={authorizedReferralRedeem} className={"text-sm py-1 px-3 text-white rounded-full " + (authorizedReferralRedeem ? "bg-gray-500 text-xs cursor-not-allowed" : "bg-green-600")} onClick={
                             async () => {
