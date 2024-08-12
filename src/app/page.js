@@ -12,7 +12,7 @@ export default function MainHome() {
             const remoteLogin = await getRemoteLoginIsCompletedFromSessionId(randomId);
             if (remoteLogin.result && remoteLogin.isCompleted) {
                 const loginUser = await getUser(remoteLogin.data.email, remoteLogin.data.password);
-                if (loginUser.result) {
+                if (loginUser.result && loginUser.data) {
                     localStorage.setItem("SkuuTap | Account Saved", encodeBase64(JSON.stringify(loginUser.data)));
                     window.open("/main", "_self");
                 } 
