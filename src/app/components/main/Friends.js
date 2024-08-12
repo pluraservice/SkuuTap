@@ -114,7 +114,7 @@ export default function Friends({ userData }) {
                     </div>
                     <div className="w-full flex flex-col gap-3 mt-5 p-3">
                         <h1 className="text-2xl font-semibold">Persone Invitate</h1>
-                        <div className="flex flex-wrap gap-2 w-full text-white h-24 overflow-scroll">
+                        <div className="flex flex-wrap gap-2 w-full text-white h-24 overflow-scroll" style={{ paddingBottom: "200px" }}>
                             {userFriends.map((item, index) => {
                                 return item ? (
                                     <div key={index} className="w-full h-16 rounded-xl flex flex-row gap-3 p-4 items-center" style={{ backgroundColor: 'rgb(40, 40, 40)' }}>

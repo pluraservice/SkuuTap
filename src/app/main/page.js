@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import decodeBase64 from "../functions/base64/decode";
-import getUser from "../functions/api/getUser";
 import getUserTapCoin from "../functions/api/getUserTapCoin";
 import Home from "../components/main/Home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +16,6 @@ import getUserIsFollowerFromUsername from "../functions/api/getUserIsFollowerFro
 export default function Main() {
     const [userData, setUserData] = useState();
     const [userTapCoin, setUserTapCoin] = useState(0);
-    const [loadingScreen, setLoadingScreen] = useState(true);
     const [playGame, setPlayGame] = useState(false);
     const [modalitySelezionated, setModalitySelezionated] = useState("Home");
     const [viewVideo, setViewVideo] = useState({ view: false, item: {} });
@@ -39,19 +37,12 @@ export default function Main() {
             const savedAccount = localStorage.getItem("SkuuTap | Account Saved");
             const savedAccountDecodeData = JSON.parse(decodeBase64(savedAccount));
             if (savedAccount) {
-                const UserGet = await getUser(savedAccountDecodeData.email, savedAccountDecodeData.password);
-                if (UserGet.result) {
-                    if (UserGet.data) {
-                        setUserData(UserGet.data);
-                        const UserCoinGet = await getUserTapCoin(UserGet.data.uid);
-                        if (UserCoinGet.result) {
-                            setUserTapCoin(UserCoinGet.coin);
-                        } else {
-                            setUserTapCoin(0);
-                        }
-                    }
+                setUserData(savedAccountDecodeData);
+                const UserCoinGet = await getUserTapCoin(savedAccountDecodeData.uid);
+                if (UserCoinGet.result) {
+                    setUserTapCoin(UserCoinGet.coin);
                 } else {
-                    window.open("/", "_self");
+                    setUserTapCoin(0);
                 }
             } else {
                 window.open("/", "_self");
@@ -154,7 +145,7 @@ export default function Main() {
                                 <div className="w-full h-full">
                                     <>
                                         <h1 className="text-white text-center mt-5 p-1">Guarda tutto il Video per Ricevere la Tua Ricompensa</h1>
-                                        <iframe key={videoKey} width={"100%"} height={"100%"} src={viewVideo.item.VideoOptionsFrame.url} title="SkuuTap Video" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+                                        <iframe key={videoKey} width={"100%"} height={"100%"} src={viewVideo.item.VideoOptionsFrame.url} title="SkuuTap Video" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
                                         <div
                                             style={{
                                                 position: 'absolute',
@@ -228,7 +219,11 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-            ) : ""}
+            ) : (
+                <div className="w-full h-screen flex justify-center items-center bg-green-600">
+                    <h1 className="text-6xl">SkuuTap</h1>
+                </div>
+            )}
         </>
     );
 }

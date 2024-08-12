@@ -6,9 +6,11 @@ import SkuuTapCardBackground from "@/app/assets/img/cardbg.png"
 
 export default function Home({ userData, setPlayGame, userTapCoin, playGame }) {
     return (
-        <div className="overflow-y-scroll overflow-x-hidden w-full h-full py-5 flex flex-col justify-center items-center gap-6" style={{ paddingBottom: "120px" }}>
-            <Image src={userData.photoURL ? userData.photoURL : noPhotoURL} className="w-32 rounded-full" />
-            <h1 className="text-2xl">{userData.displayName}</h1>
+        <div className="overflow-y-scroll overflow-x-hidden w-full h-full py-5 flex flex-wrap justify-center items-center gap-6" style={{ paddingBottom: "120px" }}>
+            <div className="w-full flex flex-col justify-center items-center gap-4">
+                <Image src={userData.photoURL ? userData.photoURL : noPhotoURL} className="w-32 rounded-full" />
+                <h1 className="text-2xl">{userData.displayName}</h1>
+            </div>
             <div className="flex flex-row justify-center items-center gap-3">
                 <Image src={SkuuTapCoin} className="w-12 rounded-full" />
                 <h1 className="text-2xl">{userTapCoin}</h1>
