@@ -3,119 +3,819 @@
 @tailwind utilities;
 
 body {
-    margin: 0px;
-    overflow: hidden;
-    user-select: none;
     background-color: black;
-    -webkit-user-drag: none;
+    user-select: none;
 }
 
-button {
-    cursor: pointer;
+img {
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-img {
-    user-select: none;
-    -webkit-user-drag: none;
+.SkuuBit-Navbar {
+    width: 100%;
+    height: 65px;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 1px 0px 0px rgba(128, 128, 128, 0.418);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    z-index: 100;
 }
 
-.SkuuTap-LoginForm {
-    width: 25%;
+.SkuuBit-Navbar-ContainerOne,
+.SkuuBit-Navbar-ContainerTwo {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    gap: 30px;
+}
+
+.SkuuBit-Navbar-ContainerTwo {
+    padding-right: 20px;
+    gap: 10px;
+}
+
+.SkuuBit-Navbar-ContainerThree {
+    display: none;
+}
+
+.SkuuBit-Navbar-ContainerOne img {
+    width: auto;
+    height: 100%;
+}
+
+.SkuuBit-Navbar-ContainerOne .SkuuBit-NavItem {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+}
+
+.SkuuBit-NavItem-Text {
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.6s;
+}
+
+.SkuuBit-NavItem-Text:hover {
+    background-color: rgb(37, 148, 148);
+    border: none;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    border-radius: 25px;
+}
+
+.SkuuBit-Navbar-Button-Login {
     background-color: black;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 0px 1.5px gray;
+}
+
+.SkuuBit-Navbar-Button-Register {
+    background-color: rgb(37, 148, 148);
+    color: white;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 25px;
+}
+
+.SkuuBit-Navbar-Button-Login-Full {
+    width: 100%;
+    background-color: black;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 0px 1.5px gray;
+}
+
+.SkuuBit-Navbar-Button-Register-Full {
+    width: 100%;
+    background-color: rgb(37, 148, 148);
+    color: white;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 25px;
+}
+
+.SkuuBit-Navbar-Dropdown-Content-Wallet {
+    display: none;
+    position: absolute;
+    margin-top: 30px;
+    background-color: black;
+    width: auto;
+    height: auto;
+    box-shadow: 0px 0px 3px 1px gray;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.SkuuBit-Navbar-Dropdown-Content-Wallet.visible {
+    display: block;
+    opacity: 1;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Spot,
+.SkuuBit-Navbar-DropdownWallet-Futures,
+.SkuuBit-Navbar-DropdownWallet-Wallet {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    width: 100%;
+    height: 50%; 
+    border-radius: 15px;
+    background-color: black;
+    justify-content: start;
+    transition: 0.3s;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Spot-notFull {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    border-radius: 15px;
+    background-color: black;
+    transition: 0.3s;
+    height: auto;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Futures,
+.SkuuBit-Navbar-DropdownWallet-Wallet {
+    margin-top: 2px;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Spot:hover,
+.SkuuBit-Navbar-DropdownWallet-Futures:hover,
+.SkuuBit-Navbar-DropdownWallet-Wallet:hover,
+.SkuuBit-Navbar-DropdownWallet-Spot-notFull:hover {
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 3px 1px gray;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Spot .SkuuBit-DropdownButtonIcon,
+.SkuuBit-Navbar-DropdownWallet-Futures .SkuuBit-DropdownButtonIcon,
+.SkuuBit-Navbar-DropdownWallet-Wallet .SkuuBit-DropdownButtonIcon {
+    width: auto;
+}
+
+.SkuuBit-Navbar-DropdownWallet-Spot div,
+.SkuuBit-Navbar-DropdownWallet-Futures div,
+.SkuuBit-Navbar-DropdownWallet-Wallet div,
+.SkuuBit-Navbar-DropdownWallet-Spot-notFull div {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.SkuuBit-SectionOne {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 80px;
+}
+
+.SkuuBit-Section-homeTwo {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 50px;
+}
+
+.SkuuBit-SectionOne div:nth-child(1),
+.SkuuBit-Section-homeTwo div:nth-child(2) {
     display: flex;
     justify-content: center;
-    align-items: center;
+    font-size: 50px;
+    font-weight: 900;
     flex-direction: column;
-    gap: 30px;
-    color: white;
-    height: 100vh;
+    gap: 20px;
+    height: 50vh;
 }
 
-.flex-phone {
+.SkuuBit-SectionOne div:nth-child(2),
+.SkuuBit-Section-homeTwo div:nth-child(1) {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.SkuuBit-SectionTwo {
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.SkuuBit-SectionTwo .SkuuBit-SectionTwoCard {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 3px 1px gray;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.SkuuBit-ImageBlurEffect {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.SkuuBit-SectionTwo .SkuuBit-SectionTwoCard .SkuuBit-ImageBlurEffect img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.SkuuBit-ImageBlurEffect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.582);
+    z-index: 2;
+}
+
+.SkuuBit-CardContent {
+    color: white;
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    place-items: end;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: start; 
+    padding: 30px;
+}
+
+.SkuuBit-GetStarted-Button {
     width: 100%;
     display: flex;
     flex-direction: row;
-}
-
-.SkuuTap-MainForm {
-    width: 25%;
-    background-color: black;
-    color: white;
-    height: 100%;
-}
-
-.SkuuTap-HomeImgContainer {
-    width: 75%;
-    background-color: green;
-    display: none;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 30px;
-    height: 100%;
+    border-radius: 25px;
+    padding: 10px;
+    gap: 10px;
+    font-size: 15px;
+    background-color: rgb(37, 148, 148);
+    font-weight: 300;
 }
 
-.SkuuTap-LoginForm h1 {
-    color: green;
-    font-size: 50px;
-}
-
-.SkuuTap-LoginForm button {
-    width: 340px;
-    padding: 20px;
-    border-radius: 15px;
-    border: none;
-    color: white;
-    background-color: rgb(0, 95, 21);
-    cursor: pointer;
-}
-
-.SkuuTap-Terms {
+.SkuuBit-Login-LoginContainer {
+    width: 100%;
+    height: 75vh;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.SkuuBit-Login-LoginContainer div {
+    width: 50%;
+}
+
+.SkuuBit-Login-LoginContainer .containerImage {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.SkuuBit-LoginForm {
+    width: 50%;
+    background-color: rgb(20, 20, 20);
+    border-radius: 25px;
+    box-shadow: 0px 0px 3px 1px gray;
+    color: #fff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.SkuuBit-RemoteAppLogin {
+    width: auto;
+    height: 50vh;
+    background-color: rgb(20, 20, 20);
+    border-radius: 25px;
+    box-shadow: 0px 0px 3px 1px gray;
+    color: #fff;
+    padding: 25px;
+    display: flex;
+}
+
+.SkuuBit-LoginForm h2 {
+    font-size: 30px;
+    font-weight: 900;
+    align-self: flex-start;
+}
+
+.SkuuBit-LoginForm .SkuuBit-LoginForm-Inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.SkuuBit-LoginForm .SkuuBit-LoginForm-Inputs div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 900;
+    width: 100%; 
+    height: auto;
+}
+
+.SkuuBit-default-Input {
+    background-color: rgb(10, 10, 10);
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 1px 1px gray;
+    font-weight: 300;
+    width: 100%;
+}
+
+.SkuuBit-default-Input-notFull {
+    background-color: rgb(10, 10, 10);
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 1px 1px gray;
+    font-weight: 300;
+}
+
+.SkuuBit-BuyButton {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    gap: 10px;
+    font-size: 15px;
+    background-color: rgb(29, 182, 29);
+    font-weight: 300;
+}
+
+.SkuuBit-SellButton {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    gap: 10px;
+    font-size: 15px;
+    background-color: red;
+    font-weight: 300;
+}
+
+.SkuuBit-Login-Button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    gap: 10px;
+    font-size: 15px;
+    background-color: rgb(37, 148, 148);
+    font-weight: 300;
+}
+
+.CyanColor {color: rgb(37, 148, 148);}
+.CyanBackgroundColor {background-color: rgb(37, 148, 148);}
+
+.SkuuBit-Alert {
+    width: 400px;
+    height: auto;
+    padding: 10px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 2px 1px rgb(37, 148, 148);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.SkuuBit-GoogleButton {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    gap: 10px;
+    font-size: 15px;
+    background-color: white;
+    font-weight: 300;
+    color: black;
+}
+
+.SkuuBit-GoogleButton img {
+    height: 100%;
+    width: auto;
+}
+
+.SkuuBit-MarketOverview {
+    padding: 25px;
+    height: 100vh;
+}
+
+.SkuuBit-MarketOverview .SkuuBit-MarketOverview-MainBox {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 3px 1px gray;
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.SkuuBit-SymbolOverviewContainer img {
+    border-radius: 100%;
+}
+
+.SkuuBit-SymbolOverviewContainer {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 3px 1px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    color: white;
+    font-size: 22px;
+}
+
+.SkuuBit-Wallet {
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.SkuuBit-Wallet-LateralMenu {
+    padding: 15px;
+    width: 20%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 15px;
 }
 
-.SkuuTap-Terms p:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: green;
+.SkuuBit-Wallet-MainWindow {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    overflow: scroll;
 }
 
-.SkuuTap-Terms .separator {
-    width: 1px;
-    height: 50%;
-    background-color: white;
+.SkuuBit-Wallet-MainWindow-noBorder {
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    overflow: scroll;
 }
 
-.SkuuTap-PlayButton {
-    background-color: green;
+.SkuuBit-WalletCP-Balance,
+.SkuuBit-WalletCP-Balance-DivButtons {
+    width: 100%;
+    border-radius: 25px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 20px;
     color: white;
-    border: none;
-    border-radius: 15px; 
-    padding: 6px;
 }
 
-@media screen and (max-width: 1900px) {
-    .flex-phone {
+.SkuuBit-DefaultContainer {
+    border-radius: 25px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    padding: 20px;
+    color: white;
+}
+
+.SkuuBit-DefaultContainer-noPadding {
+    border-radius: 25px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    color: white;
+}
+
+.SkuuBit-OrderBookInfoContainer {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    font-size: 13px;
+    background-color: rgb(29, 29, 29);
+    border-radius: 5px;
+}
+
+.SkuuBit-ContainerPhoneMenu {
+    padding: 20px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 0px 2px 1px gray;
+    color: white;
+}
+
+.SkuuBit-NavItem-Text-PhoneMenu {
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.SkuuBit-NavItem-Text-PhoneMenu:hover {
+    padding: 10px;
+    border-radius: 25px;
+    background-color: rgb(48, 48, 48);
+}
+
+.SkuuBit-WalletCP-Balance-DivButtons {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
+}
+
+.SkuuBit-Wallet-LateralMenu-DefaultButton,
+.SkuuBit-Wallet-LateralMenu-DefaultButton-noPadding,
+.SkuuBit-Wallet-Settings-DefaultButton {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    width: 100%;
+    height: auto; 
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgb(29, 29, 29);
+    justify-content: start;
+    color: white;
+    transition: 0.3s;
+}
+
+.SkuuBit-Wallet-LateralMenu-DefaultButton-noPadding {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.SkuuBit-Wallet-LateralMenu-DefaultButton-noPadding-notFull {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    height: auto; 
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgb(29, 29, 29);
+    justify-content: start;
+    color: white;
+    transition: 0.3s;
+}
+
+.SkuuBit-Wallet-Settings-DefaultButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SkuuBit-Wallet-LateralMenu-DefaultButton:hover,
+.SkuuBit-Wallet-LateralMenu-DefaultButton-noPadding:hover,
+.SkuuBit-Wallet-Settings-DefaultButton:hover,
+.SkuuBit-Wallet-LateralMenu-DefaultButton-noPadding-notFull:hover {
+    background-color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 3px 1px gray;
+}
+
+.SkuuBit-Wallet-CryptoDropDown {
+    position: absolute;
+    margin-top: 15px;
+    background-color: black;
+    width: 130px;
+    height: auto;
+    box-shadow: 0px 0px 3px 1px gray;
+    border-radius: 25px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.SkuuBit-Deposit-CryptoList {
+    background-color: black;
+    width: 100%;
+    height: 150px;
+    overflow: scroll;
+    box-shadow: 0px 0px 3px 1px gray;
+    border-radius: 25px;
+    padding: 15px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.SkuuBit-Wallet-CryptoDropDown div,
+.SkuuBit-Deposit-CryptoList div {
+    transition: 0.7s;
+}
+
+.SkuuBit-Wallet-CryptoDropDown div:hover,
+.SkuuBit-Deposit-CryptoList div:hover {
+    padding: 3px;
+    border-radius: 25px;
+    background-color: rgb(43, 43, 43);
+    box-shadow: 0px 0px 3px 1px gray;
+}
+
+.SkuuBit-Sponsor img {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+}
+
+.SkuuBit-Sponsor img:hover {
+    filter: grayscale(0%);
+}
+
+@media screen and (max-width: 1420px) {
+    .SkuuBit-Navbar-ContainerOne .SkuuBit-NavItem {
+        display: none;
+    }
+
+    .textCenterToPhone {
+        text-align: center;
+    }
+
+    .SkuuBit-Navbar-ContainerOne {
+        width: 80px;
+    }
+    
+    .SkuuBit-Navbar-ContainerTwo {
         width: 100%;
+    }
+
+    .SkuuBit-Navbar-ContainerThree {
+        display: block;
+        padding-right: 15px;
+        font-size: 20px;
+    }
+
+    .SkuuBit-Navbar-ContainerThree .SkuuBit-MenuBarsIcon {
+        cursor: pointer;
+    } 
+
+    .SkuuBit-SectionOne {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .phoneFull {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1340px) {
+    .SkuuBit-GetStarted-Button {
+        width: 100%;
+    }
+
+    .SkuuBit-RemoteAppLogin {
+        height: auto;
+    }
+
+    .SkuuBit-SectionTwo {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .flex-phone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .SkuuBit-SectionOne div:nth-child(1) {
+        height: auto;
+        padding: 30px;
+    }
+
+    .SkuuBit-Login-LoginContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .SkuuBit-Login-LoginContainer div {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .SkuuBit-Login-LoginContainer .containerImage {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .SkuuBit-WalletCP-Balance {
+        display: flex;
+        align-items: center;
+    }
+
+    .SkuuBit-Wallet {
         display: flex;
         flex-direction: column;
     }
 
-    .flex-phone div {
+    .SkuuBit-Wallet .SkuuBit-Wallet-LateralMenu {
         width: 100%;
     }
 
-    .SkuuTap-MainForm,
-    .SkuuTap-HomeImgContainer,
-    .SkuuTap-LoginForm {
-        width: 100%;
+    .SkuuBit-WalletCP-Balance-DivButtons {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .SkuuBit-SectionTwo {
+        height: auto;
     }
 }
