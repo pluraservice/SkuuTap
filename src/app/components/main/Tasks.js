@@ -86,7 +86,7 @@ export default function Tasks({ userData, setViewVideo, setShowInstagramAlert })
                                     <Image src={item.IconUrl || noPhotoURL} className="h-10 w-auto rounded-full" />
                                     <div className="w-auto whitespace-nowrap flex flex-col justify-center">
                                         <h1>{item.Title}</h1>
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-xs text-gray-400 truncate">
                                             {
                                                 item.Id === "1" ? item.Descrizione.replace("-INFO-", userCoinNumber) :
                                                     item.Id === "2" ? item.Descrizione.replace("-INFO-", userCoinNumber) :
